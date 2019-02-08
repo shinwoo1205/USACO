@@ -43,19 +43,20 @@ int main(void)
 int step (const int current, const int deep, const int distance)
 {
   // if current is equal the end of the path, to step over the snowpath succeeed
-  cout << "current is " << current << endl;
-  cout << "boots[i].s is " << deep << endl;
-  cout << "boots[i].d is " << distance << endl;
+  //cout << "current is " << current << endl;
+  //cout << "boots[i].s is " << deep << endl;
+  //cout << "boots[i].d is " << distance << endl;
   if (current >= (feets.size() -2))
     return 1;
   int stepsize = distance; 
   int stepto = 0;
   ((current + stepsize) >= feets.size()) ? stepto = feets.size()-1 : stepto = current + stepsize;
-  cout << "stepto is " << stepto << endl;
+  //cout << "stepto is " << stepto << endl;
   while (stepsize != 0){
     if (feets[stepto] > deep) {
-      cout << " feets[" << stepto << "] : " << feets[stepto] << "deep is " << deep << endl;
+   //   cout << " feets[" << stepto << "] : " << feets[stepto] << "deep is " << deep << endl;
       stepsize -= 1;
+      stepto = current + stepsize;
       continue;
     }        
     else
