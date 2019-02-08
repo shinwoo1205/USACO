@@ -1,4 +1,8 @@
-// USACO skel
+/*
+ID: jeremia11
+TASK: skidesign
+LANG: C++
+*/
 #include <string.h>
 #include <iostream>
 #include <fstream>
@@ -6,9 +10,11 @@
 #include <vector>
 #include <algorithm>
 
+#define MAXNUM 10000000
+
 using namespace std;
 vector<int> hills;
-vector<int> costs(84);
+vector<int> costs(84, MAXNUM);
 
 void calculate(const int min, const int max);
 int main(void)
