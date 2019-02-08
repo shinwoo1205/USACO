@@ -43,7 +43,7 @@ int main(void)
 int step (const int current, const int deep, const int distance)
 {
   // if current is equal the end of the path, to step over the snowpath succeeed
-  if (current >= (feets.size() -2))
+  if (current >= (feets.size() -1))
     return 1;
   int stepsize = distance; 
   int stepto = 0;
