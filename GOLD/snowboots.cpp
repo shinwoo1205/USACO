@@ -16,6 +16,7 @@ struct boot {
 vector<int> feets;
 vector<boot> boots;
 
+int step (const int current, const int deep, const int distance);
 int main(void)
 {
   ofstream fout ("snowboots.out");
@@ -34,7 +35,29 @@ int main(void)
   for (int i = 0; i < B; i++)
     fin >> boots[i].s >> boots[i].d;
  
-   
+  for (int i = 0; i< B; i++)
+    fout << step(0, boots[i].s, boots[i].d) << endl; 
 
   return 0;
 }
+int step (const int current, const int deep, const int distance)
+{
+  // if current is equal the end of the path, to step over the snowpath succeeed
+  if (current >= (feets.size() -2))
+    return 1;
+  int stepsize = distance; 
+  int stepto = 0;
+  ((current + stepsize) >= feets.size()) ? stepto = feets.size()-1 : stepto = current + stepsize;
+  while (stepsize != 0){
+    if (feets[stepto] > deep) {
+      stepsize -= 1;
+      continue;
+    }        
+    else
+      return step(stepto, deep, distance);
+  }
+  // to this, it is impossilbe to step further 
+  return 0;
+}
+
+
