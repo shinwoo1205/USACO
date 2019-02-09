@@ -33,6 +33,7 @@ int main(void)
     determinePossible(FJkey[i], FJPossible[i]);
     determinePossible(Mkey[i], MPossible[i]);    
   }  
+
   
 
   // count FJ case 
@@ -84,10 +85,30 @@ int main(void)
 void determinePossible(const int keyvalue, int* possible)
 {
   possible[0] = keyvalue;
-  ((keyvalue + 1) <= N) ? possible[1] = (keyvalue + 1) : possible[1] = 0;
-  ((keyvalue + 2) <= N) ? possible[2] = (keyvalue + 2) : possible[2] = 0;  
-  ((keyvalue - 1) > 0) ? possible[3] = keyvalue - 1 : possible[3] = N;
-  ((keyvalue - 2) > 0) ? possible[4] = keyvalue - 2 : possible[4] = N - 1;
+  possible[1] = keyvalue + 1;
+  if (possible[1] == (N+1))  
+    possible[1] = 1;
+
+  possible[2] = keyvalue + 2;
+  if (possible[2] == (N+1))
+    possible[2] = 1;
+  if (possible[2] == (N+2))
+    if (N == 1)
+      possible[2] = 1;
+    else
+      possible[2] = 2;
+
+  possible[3] = keyvalue - 1;
+  if (possible[3] == 0) 
+    possible[3] = N;
+
+  possible[4] = keyvalue - 2; 
+  if (possible[4] == 0)
+    possible[4] = N;
+  if (possible[4] == -1)
+    possible[4] = N - 1 ;
+    
+
 
   // delete duplicate value
   for(int i = 0; i < 5; i++)
