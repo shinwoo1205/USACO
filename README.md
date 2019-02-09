@@ -1,2 +1,2 @@
-# USACO
+# USACO TRAINING
 # practice algorithm
