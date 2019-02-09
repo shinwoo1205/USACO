@@ -41,6 +41,14 @@ int main(void)
       cout << FJPossible[i][j] << " ";
     cout << endl;
   }  
+  // debug
+  for (int i = 0; i < 3; i++)
+  {
+    cout << "Mpossible" << "[" << i << "]: " ;
+    for (int j = 0; j < 5; j++)
+      cout << MPossible[i][j] << " ";
+    cout << endl;
+  }  
   
 
   // count FJ case 
@@ -74,7 +82,7 @@ int main(void)
     int dupcount=0;
     for(int j = 0; j < 5; j++){
       if(FJPossible[i][j] == 0)
-        break;
+        continue;
       for(int k = 0; k < 5; k++)
         if(FJPossible[i][j] == MPossible[i][k]) 
           dupcount++; 
@@ -83,8 +91,13 @@ int main(void)
   }
   //debug 
   cout << "duplcate case: " << dupcase << endl;
-  
-  fout << endl;
+
+
+  int totalcase = 0;
+  totalcase = FJcase + Mcase - dupcase;
+  //debug 
+  cout << totalcase << endl;
+  fout << totalcase << endl;
 
   return 0;
 }
