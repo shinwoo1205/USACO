@@ -37,11 +37,37 @@ int main(void)
   for (int i = 0; i < 3; i++)
   {
     cout << "FJpossible" << "[" << i << "]: " ;
-    for (int j = 0; j < 5; j ++)
+    for (int j = 0; j < 5; j++)
       cout << FJPossible[i][j] << " ";
     cout << endl;
   }  
   
+
+  // count FJ case 
+  int FJcase = 1;
+  for (int i = 0; i < 3; i++){
+    int FJcount = 0;
+    for (int j = 0; j < 5; j++){
+      if (FJPossible[i][j] == 0)
+        continue;
+      FJcount++; 
+    }
+    FJcase *= FJcount; 
+  }
+  int Mcase = 1;
+  for (int i = 0; i < 3; i++){
+    int Mcount = 0;
+    for (int j = 0; j < 5; j++){
+      if (MPossible[i][j] == 0)
+        continue;
+      Mcount++; 
+    }
+    Mcase *= Mcount; 
+  }
+
+  //debug 
+  cout << "FJcase: " << FJcase << endl; 
+  cout << "Mcase: " << Mcase << endl; 
   // count duplicate case between FJkey and Master key
   int dupcase=1;
   for (int i = 0; i < 3; i++){
