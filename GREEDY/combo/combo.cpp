@@ -33,6 +33,7 @@ int main(void)
     determinePossible(FJkey[i], FJPossible[i]);
     determinePossible(Mkey[i], MPossible[i]);    
   }  
+  // debug
   for (int i = 0; i < 3; i++)
   {
     cout << "FJpossible" << "[" << i << "]: " ;
@@ -40,7 +41,22 @@ int main(void)
       cout << FJPossible[i][j] << " ";
     cout << endl;
   }  
-
+  
+  // count duplicate case between FJkey and Master key
+  int dupcase=1;
+  for (int i = 0; i < 3; i++){
+    int dupcount=0;
+    for(int j = 0; j < 5; j++){
+      if(FJPossible[i][j] == 0)
+        break;
+      for(int k = 0; k < 5; k++)
+        if(FJPossible[i][j] == MPossible[i][k]) 
+          dupcount++; 
+    } 
+    dupcase *= dupcount;
+  }
+  //debug 
+  cout << "duplcate case: " << dupcase << endl;
   
   fout << endl;
 
