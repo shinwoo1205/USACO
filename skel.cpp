@@ -1,6 +1,6 @@
 /*
 ID: jeremia11
-TASK: crypt1
+TASK: test
 LANG: C++
 */
 #include <stdio.h>
@@ -13,8 +13,8 @@ using namespace std;
 
 int main(void)
 {
-  ofstream fout ("crypt1.out");
-  ifstream fin ("crypt1.in");
+  ofstream fout ("test.out");
+  ifstream fin ("test.in");
 
   // process inputs
   int N;
