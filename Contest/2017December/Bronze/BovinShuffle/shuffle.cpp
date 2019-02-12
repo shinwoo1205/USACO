@@ -15,6 +15,8 @@ using namespace std;
 vector<string> cownames;
 //shuffle order
 vector<int> s_order;
+//initial order (1,..., N)
+vector<int> i_order;
 shuffle
 int main(void)
 {
@@ -24,8 +26,9 @@ int main(void)
   // process inputs
   int N;
   fin >> N;
-  s_order.resize(N+1);
-  cownames.resize(N+1);
+  s_order.resize(N + 1);
+  i_order.resize(N + 1);
+  cownames.resize(N + 1);
   //process input
   for (int i = 1; i <= N; i++) 
 	  fin >> s_order[i];
