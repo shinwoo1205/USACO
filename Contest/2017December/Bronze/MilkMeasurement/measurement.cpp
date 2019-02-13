@@ -51,12 +51,13 @@ int main(void)
 	  M_total += M_milk[i];
 	
 	  
-	  if(updateDisplay(B_total, E_total, M_total))
+	  if(updateDisplay(B_total, E_total, M_total)) 
 		  update++;
-	     
+	
+
 	  
 	  //debug
-	  //cout << "B_total: " << B_total << "E_total: " << E_total << "M_total: " << M_total << endl; 
+	 // cout << "B_total: " << B_total << "E_total: " << E_total << "M_total: " << M_total << endl; 
   }
 
   
@@ -80,7 +81,7 @@ bool updateDisplay(int B_total, int E_total, int M_total)
 	}
 	else if (B_total == E_total) {
 		if (M_total > B_total)
-			tempdis |= M_total;
+			tempdis |= Mildred;
 		else if (M_total == B_total)
 			tempdis |= (Bessie | Elsie | Mildred);
 		else 
