@@ -41,21 +41,45 @@ int main(void)
     return a.days < b.days;
   });
   
-  //debug
-  if (!cows[1])
-	  cout << "cow exist!" <<endl;
-  else
-	  cout << "cow does not exist" <<endl;
+  
   int board_max = G;
   int board_count = N;
+  int update = 0;
   for (int i = 0; i < N; i++) {
-	  
-	  
-	  
+	  bool isInBoard = false;
+	  if(cows[measures[i].cows]) {
+		  //is the cows in board originally
+		  isInBoard = (cows[measures[i].cows] == board_max);
+		  cows[measures[i].cows] += measures[i].delta;
+	  } else
+		  cows[measures[i].cows] += (G + measures[i].delta);
+	  if(isInBoard) {
+		  if (board_max > cows[measures[i].cows]) {
+			  update++;
+			  board_count--;
+			  board_count = max(0, board_count);
+		  } else {
+			  board_max = cows[measures[i].cows];
+			  if (board_count != 1) {
+				  update++;
+				  board_count = 1;
+			  }
+		  }
+		  
+	  } else {
+	      if (board_max < cows[measures[i].cows]) {
+            update++;
+			board_max = cows[measures[i].cows];
+			board_count = 1;
+		  } else if (board_max == cows[measures[i].cows]) {
+			update++;
+			board_count++;
+		  } else {
+			  ;
+		  }
+	  } 
   }
 
-
-  
   fout << update <<endl;
 
 
