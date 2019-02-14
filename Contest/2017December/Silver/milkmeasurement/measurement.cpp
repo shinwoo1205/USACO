@@ -59,17 +59,20 @@ int main(void)
 	  
 	  if(isInBoard) {
 		  if (board_max > cows[measures[i].cows]) {
-			  update++;
-			  board_count--;
-			  board_count = max(0, board_count);
+			  if (board_count != 1) {
+				update++;
+				board_count--;
+				board_count = max(0, board_count);
+			  } else {
+				  board_max = cows[measures[i].cows];
+			  }
 		  } else {
 			  board_max = cows[measures[i].cows];
 			  if (board_count != 1) {
 				  update++;
 				  board_count = 1;
 			  }
-		  }
-		  
+		  }  
 	  } else {
 	      if (board_max < cows[measures[i].cows]) {
             update++;
@@ -82,8 +85,10 @@ int main(void)
 			  ;
 		  }
 	  } 
+	    
   }
 
+  
   fout << update <<endl;
 
 
