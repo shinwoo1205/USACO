@@ -51,8 +51,12 @@ int main(void)
 		  //is the cows in board originally
 		  isInBoard = (cows[measures[i].cows] == board_max);
 		  cows[measures[i].cows] += measures[i].delta;
-	  } else
+	  } else {
+		  if (board_max == G)
+			  isInBoard = true;
 		  cows[measures[i].cows] += (G + measures[i].delta);
+	  }
+	  
 	  if(isInBoard) {
 		  if (board_max > cows[measures[i].cows]) {
 			  update++;
