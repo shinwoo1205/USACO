@@ -8,6 +8,7 @@ LANG: C++
 #include <fstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -17,16 +18,14 @@ int main(void)
   ifstream fin ("hayfeast.in");
 
   // process inputs
-  int N, M;
+  unsigned int N, M;
   fin >> N >> M;
-  // first : spiceness, second: flavor 
+  // first : flavor, second: spice
   vector<pair<int, int>> hays(N);
-  for (int i = 0; i <N; i++)
-	  fin >> hays.second >> hays.first;
-	  
- 
-  fout << endl;
+  for (int i = 0; i < N; i++)
+	  fin >> hays[i].first >> hays[i].second;
 
+ 
 
   return 0;
 }
