@@ -10,7 +10,7 @@ LANG: C++
 #include <vector>
 
 using namespace std;
-
+vector<pair<int, int>> wormholes;
 int main(void)
 {
   ofstream fout ("wormhole.out");
@@ -19,8 +19,12 @@ int main(void)
   // process inputs
   int N;
   fin >> N;
- 
-  fout << << endl;
+  wormholes.resize(N);
+  for (int i = 0; i < N; i++)
+  {
+	  fin >> wormholes[i].first >> wormholes[i].second;
+  }
+  fout << endl;
 
 
   return 0;
